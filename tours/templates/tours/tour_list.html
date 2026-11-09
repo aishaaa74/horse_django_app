@@ -1,0 +1,16 @@
+<h1>Туры</h1>
+<ul>
+{% for tour in tours %}
+  <li>
+    <a href="{{ tour.get_absolute_url }}">{{ tour.title }}</a>
+    — {{ tour.category.name }}, {{ tour.price }} ₽, {{ tour.duration_hours }} ч
+  </li>
+{% empty %}
+  <li>Туров пока нет</li>
+{% endfor %}
+</ul>
+<p>
+  <a href="{% url 'category_list' %}">Категории</a> |
+  <a href="{% url 'booking_create' %}">Забронировать тур</a> |
+  <a href="{% url 'comment_create' %}">Оставить комментарий</a>
+</p>

@@ -1,0 +1,15 @@
+<h1>{{ tour.title }}</h1>
+<p>{{ tour.description }}</p>
+<p>Категория: {{ tour.category.name }}</p>
+<p>Цена: {{ tour.price }} ₽, длительность: {{ tour.duration_hours }} ч</p>
+
+<h2>Комментарии</h2>
+<ul>
+{% for comment in tour.comments.all %}
+  <li><strong>{{ comment.client.full_name }}:</strong> {{ comment.text }}</li>
+{% empty %}
+  <li>Комментариев пока нет</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'tour_list' %}">Назад к списку туров</a>

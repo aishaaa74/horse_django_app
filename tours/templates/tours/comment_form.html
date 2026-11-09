@@ -1,0 +1,7 @@
+<h1>Оставить комментарий к туру</h1>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Отправить</button>
+</form>
+<a href="{% url 'tour_list' %}">Назад</a>

@@ -1,0 +1,9 @@
+<h1>Категории туров</h1>
+<ul>
+{% for category in categories %}
+  <li>{{ category.name }} ({{ category.tours.count }} туров)</li>
+{% empty %}
+  <li>Категорий пока нет</li>
+{% endfor %}
+</ul>
+<a href="{% url 'tour_list' %}">К списку туров</a>
